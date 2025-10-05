@@ -39,22 +39,26 @@ Once started, the API is available at:
 🚀 Getting Started
 1. Clone the Repository
 git clone https://github.com/Logik03/News-Agregator.git
+```bash
 cd news-agregator
-
-2. Copy Environment File
+```
+3. Copy Environment File
+```bash
 cp .env.example .env
-
-3. Add Your API Keys
+```
+5. Add Your API Keys
 
 This project fetches news from external providers (e.g., NewsAPI.org, The Guardian, New York Times).
 You must supply your own keys:
-
+```bash
 GUARDIAN_KEY=your_guardian_api_key_here
-
+```
+```bash
 NEWSAPIORG_KEY=your_newsapi_key_here
-
+```
+```bash
 NEWYORKTIMES_KEY=your_newyorktimes_api_key_here
-
+```
 
 ⚠️ Without valid keys, the application cannot fetch real news.
 
