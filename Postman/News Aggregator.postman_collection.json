@@ -1,0 +1,684 @@
+{
+	"info": {
+		"_postman_id": "767b7cc8-0ffc-4faf-89d6-dcc879d50b8d",
+		"name": "News Aggregator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24660029"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles/1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?per_page=10&page=2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?per_page=10&page=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "per_page",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?q=election",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?q=election",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "election"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?q=technology&per_page=15&page=1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?q=technology&per_page=15&page=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "technology"
+						},
+						{
+							"key": "per_page",
+							"value": "15"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?from=2024-01-01&to=2024-12-31",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?from=2024-01-01&to=2024-12-31",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "to",
+							"value": "2024-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?from=2025-10-05",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?from=2025-10-05",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2025-10-05"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?to=2024-10-31",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?to=2024-10-31",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "2024-10-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?categories[]=Politics",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?categories[]=Politics",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "categories[]",
+							"value": "Politics"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?categories[]=Politics&categories[]=Technology",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?categories[]=Politics&categories[]=Technology",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "categories[]",
+							"value": "Politics"
+						},
+						{
+							"key": "categories[]",
+							"value": "Technology"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?categories[]=1&categories[]=Sports",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?categories[]=1&categories[]=Sports",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "categories[]",
+							"value": "1"
+						},
+						{
+							"key": "categories[]",
+							"value": "Sports"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?sources[]=1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?sources[]=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "sources[]",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?sources[]=BBC&sources[]=CNN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?sources[]=guardian&sources[]=newsapi",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "sources[]",
+							"value": "guardian"
+						},
+						{
+							"key": "sources[]",
+							"value": "newsapi"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?sources[]=1&sources[]=NewsAPI",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?sources[]=1&sources[]=NewsAPI",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "sources[]",
+							"value": "1"
+						},
+						{
+							"key": "sources[]",
+							"value": "NewsAPI"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?authors[]=1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?authors[]=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "authors[]",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?authors[]=John%20Doe&authors[]=Allison Johnson",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?authors[]=John%20Doe&authors[]=Allison Johnson",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "authors[]",
+							"value": "John%20Doe"
+						},
+						{
+							"key": "authors[]",
+							"value": "Allison Johnson"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?categories[]=Politics&from=2024-01-01&q=election",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?categories[]=Politics&from=2024-01-01&q=election",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "categories[]",
+							"value": "Politics"
+						},
+						{
+							"key": "from",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "q",
+							"value": "election"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?sources[]=guardian&categories[]=Sport",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?sources[]=guardian&categories[]=Sport",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "sources[]",
+							"value": "guardian"
+						},
+						{
+							"key": "categories[]",
+							"value": "Sport"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/articles?q=trump&sources[]=Guardian&sources[]=newsapi&categories[]=Politics&authors[]=1&from=2024-01-01&to=2025-10-05&per_page=20&page=",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles?q=trump&sources[]=Guardian&sources[]=newsapi&categories[]=Politics&authors[]=1&from=2024-01-01&to=2025-10-05&per_page=20&page=",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "trump"
+						},
+						{
+							"key": "sources[]",
+							"value": "Guardian"
+						},
+						{
+							"key": "sources[]",
+							"value": "newsapi"
+						},
+						{
+							"key": "categories[]",
+							"value": "Politics"
+						},
+						{
+							"key": "authors[]",
+							"value": "1"
+						},
+						{
+							"key": "from",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "to",
+							"value": "2025-10-05"
+						},
+						{
+							"key": "per_page",
+							"value": "20"
+						},
+						{
+							"key": "page",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
