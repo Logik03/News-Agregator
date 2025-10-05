@@ -1,61 +1,220 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📰 Laravel News Aggregator API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A **Laravel 12–based news aggregator API** that fetches articles from multiple sources at scheduled intervals.  
+The application is **containerized with Docker**, runs background jobs and a scheduler, and exposes **RESTful endpoints** for articles, sources, and categories.
 
-## About Laravel
+This project demonstrates a **production-grade setup** including queue workers, scheduling, and an API-first design.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📦 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- ⏱ Fetches and stores articles from external APIs every **5 minutes** (via Laravel scheduler)  
+- ⚙️ Queue worker handles jobs for fetching and storing articles  
+- 📑 RESTful API with **pagination** for articles, sources, and categories  
+- 🐳 **Fully Dockerized** setup (no need to install PHP/Laravel locally)  
+- 🧪 Includes **Postman collection** for easy endpoint testing  
+- 💾 Database-driven queue driver for simplicity (**Redis recommended in production**)  
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🐳 Why Docker?
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Laravel 12 requires **PHP 8.2+ and specific extensions**.  
+To avoid version mismatch issues, the project runs entirely inside Docker containers.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Benefits:
+- ✅ Correct **PHP 8.2 environment** with required extensions  
+- ✅ Pre-configured **MySQL/Postgres** and **Redis (optional)**  
+- ✅ Queue worker & scheduler managed automatically  
+- ✅ No need to install PHP, Composer, or Laravel locally  
+- ✅ Guaranteed reproducibility across any machine  
 
-## Laravel Sponsors
+```bash
+docker-compose up --build
+```
+Once started, the API is available at:
+👉 http://localhost:8000
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+🚀 Getting Started
+1. Clone the Repository
+git clone https://github.com/Logik03/News-Agregator.git
+cd news-agregator
 
-### Premium Partners
+2. Copy Environment File
+cp .env.example .env
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+3. Add Your API Keys
 
-## Contributing
+This project fetches news from external providers (e.g., NewsAPI.org, The Guardian, New York Times).
+You must supply your own keys:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+GUARDIAN_KEY=your_guardian_api_key_here
 
-## Code of Conduct
+NEWSAPIORG_KEY=your_newsapi_key_here
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+NEWYORKTIMES_KEY=your_newyorktimes_api_key_here
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+⚠️ Without valid keys, the application cannot fetch real news.
 
-## License
+4. Build and Run Containers
+```bash
+docker-compose up --build
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This starts the following services:
+
+app → Laravel API (PHP-FPM)
+
+db → MySQL/Postgres database : MySql was used for this test case
+
+worker → runs 
+```bash
+php artisan queue:work
+```
+
+scheduler → runs 
+```bash
+php artisan schedule:work
+```
+5. Run Database Migrations
+
+the docker-compose runs the migrations automatically but then migrations can still be ran manually by running the below command in a terminal
+```bash
+docker-compose exec app php artisan migrate
+```
+6. Fetch News
+
+The scheduler runs automatically every 5 minutes.
+To fetch immediately run : 
+```bash
+docker-compose exec app php artisan fetch:newsapi
+```
+OR 
+```bash
+docker-compose exec app php artisan fetch:guardian
+```
+OR 
+```bash
+docker-compose exec app php artisan fetch:nyt
+```
+
+⚙️ Queue Driver
+
+Current setup → Database queue driver (simple for local setup)
+
+Production-ready → Use Redis for performance & scalability i.e change 
+```bash
+QUEUE_CONNECTION=redis
+```
+in .env for production
+
+⏰ Scheduler
+
+The scheduler runs via:
+```bash
+php artisan schedule:work
+```
+
+This acts like a cron job, triggering the fetch news job every 5 minutes.
+
+🧩 Database Schema
+
+sources → News sources (e.g., Guardian, NEWYORK TIMES, News Api)
+
+authors → Article authors
+
+categories → Article categories
+
+articles → Stored articles
+
+Future improvement: add a pivot table for multi-category articles.
+
+🧠 API Endpoints
+Method	Endpoint	Description
+GET	/api/articles	List all articles (paginated)
+GET	/api/articles/{id}	Get single article
+GET	/api/categories	List all categories
+GET	/api/sources	List all sources
+🧪 Postman Collection
+
+A ready-to-import Postman collection is included:
+- [Download the Postman collection](./Postman/News-Aggregator.postman_collection.json)
+- Import it into Postman (`File → Import`)
+
+Import Instructions
+
+Open Postman
+
+Click Import
+
+Select the JSON file above downloaded from the Postman folder in the folder structure for the application
+
+The collection is preconfigured for:
+👉 http://localhost:8000
+
+🧰 Manual Setup (Without Docker)
+Requirements
+
+PHP 8.2+
+
+Composer
+
+MySQL
+
+Redis (optional)
+
+Steps
+
+```bash
+composer install
+```
+```bash
+cp .env.example .env
+```
+```bash
+php artisan key:generate
+```
+```bash
+php artisan migrate
+```
+```bash
+php artisan serve
+```
+```bash
+php artisan queue:work
+```
+```bash
+php artisan schedule:work
+```
+
+
+API available at:
+👉 http://127.0.0.1:8000
+
+🧱 Future Improvements
+
+🔗 Add pivot table for multi-category articles
+
+👤 Implement personalized feeds
+
+📊 Use Redis + Laravel Horizon for job management/monitoring
+
+✅ Add unit/integration tests for API endpoints
+
+☸️ Deploy with Kubernetes/ECS for scaling
+
+🧾 Notes for Reviewers
+
+🔑 You must provide your own API keys in .env.
+
+📂 No seed data is included; articles are fetched by the scheduler.
+
+🛠 For instant testing:
+```bash
+docker-compose exec app php artisan fetch:newsapi
+```
+
+📑 All endpoints & examples are documented in the Postman collection.
+
